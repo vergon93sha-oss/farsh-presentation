@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фарш Говяжий в Вакууме — Премиум Качество</title>
+    <style>
+        /* Общие стили и темная тема */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Шапка и Кликабельное Меню */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #2a2a2a;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e63946;
+        }
+
+        /* Главный блок (Главная) */
+        .hero {
+            padding: 180px 0 100px 0;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), #121212), url('https://unsplash.com') no-repeat center center/cover;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Универсальная кнопка */
+        .btn {
+            display: inline-block;
+            background-color: #e63946;
+            color: #ffffff;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #b81d24;
+            transform: translateY(-2px);
+        }
+
+        /* Секции лендинга */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid #1f1f1f;
+        }
+
+        section h2 {
+            font-size: 36px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #e63946;
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Разделы А, Б, В */
+        /* Вкладка А: О продукте */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #e63946;
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        /* Вкладка Б: Преимущества вакуума */
+        .vacuum-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .vacuum-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .vacuum-text ul {
+            list-style-type: none;
+        }
+
+        .vacuum-text li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .vacuum-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .vacuum-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: #1a1a1a;
+            height: 300px;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* Вкладка В: Характеристики */
+        .specs-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .specs-table td {
+            padding: 20px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .specs-table td:first-child {
+            font-weight: bold;
+            color: #b0b0b0;
+            width: 40%;
+        }
+
+        .specs-table td:last-child {
+            color: #ffffff;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Всплывающее окно (Модальное) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid #2a2a2a;
+            position: relative;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #a0a0a0;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #e63946;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: #121212;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            border-color: #e63946;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка с меню -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">MeatPremium</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О продукте</a></li>
+                    <li><a href="#vacuum">Преимущества вакуума</a></li>
+                    <li><a href="#specs">Характеристики</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <div class="hero">
+        <div class="container">
+            <h1>Фарш говяжий в вакууме</h1>
+            <p>100% натуральная отборная говядина. Идеальный помол и бескомпромиссная свежесть благодаря передовой вакуумной упаковке.</p>
+            <button class="btn" onclick="openModal()">Заказать</button>
+        </div>
+    </div>
+
+    <!-- Вкладка А: О продукте -->
+    <section id="about">
+        <div class="container">
+            <h2>О продукте</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Только говядина</h3>
+                    <p>Никаких соевых добавок, ГМО, консервантов или лишнего жира. Строгий контроль качества сырья.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Правильный помол</h3>
+                    <p>Оптимальная текстура для приготовления сочных котлет, нежного болоньезе или домашних фрикаделек.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Халяль / ГОСТ</h3>
+                    <p>Соответствует самым высоким стандартам пищевой безопасности и традиционным технологиям.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Вкладка Б: Преимущества вакуума -->
+    <section id="vacuum">
+        <div class="container">
+            <h2>Преимущества вакуума</h2>
+            <div class="vacuum-content">
+                <div class="vacuum-text">
+                    <ul>
+                        <li><strong>Абсолютная стерильность:</strong> Отсутствие кислорода полностью останавливает развитие бактерий.</li>
